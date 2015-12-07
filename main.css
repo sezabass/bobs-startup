@@ -1,0 +1,229 @@
+/* http://meyerweb.com/eric/tools/css/reset/ 
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+
+/* Catawiki */
+
+html {
+	font-family: Arial, Helvetica;
+	font-size: 12px;
+}
+
+body {
+	margin: 10px;
+}
+
+    /* Custom, iPhone Retina */ 
+    @media only screen and (max-width : 767px) {
+		.csv {
+			margin-bottom: 10px;
+		}
+        .csv, #field_csv {
+			width: 100%;
+		}
+		.separator {
+			margin-right: 40px;
+		}
+		.separator span {
+			display: inline;
+		}
+		.load_from_file {
+			display: block;
+			margin: 20px auto;
+			text-align: center;
+		}
+		.load_button {
+			display: block;
+			font-size: 2em;
+			padding: 10px 0 12px;
+		}
+		/* Force table to not be like tables anymore */
+		table, thead, tbody, th, td, tr { 
+			display: block; 
+		}
+		
+		/* Hide table headers (but not display: none;, for accessibility) */
+		thead tr { 
+			position: absolute;
+			top: -9999px;
+			left: -9999px;
+		}
+		
+		td { 
+			/* Behave  like a "row" */
+			border: none;
+			border-bottom: 1px solid #fff; 
+			position: relative;
+			padding-left: 50%;
+			min-height: 25px;
+			line-height: 25px;
+		}
+		
+		td:before { 
+			/* Now like a table header */
+			position: absolute;
+			/* Top/left values mimic padding */
+			top: 0px;
+			left: 6px;
+			width: 45%; 
+			padding-right: 10px; 
+			white-space: nowrap;
+		}
+		
+		/*
+		Label the data
+		*/
+		td:nth-of-type(1):before { content: "Photo"; }
+		td:nth-of-type(2):before { content: "Company Name"; }
+		td:nth-of-type(3):before { content: "City"; }
+		td:nth-of-type(4):before { content: "Country"; }
+		td:nth-of-type(5):before { content: "Founder"; }
+		
+		#companies img {
+			margin-top: 10px;
+		}
+	}
+	
+    /* Medium Devices, Desktops */
+    @media only screen and (min-width : 768px) {
+		a {
+			text-decoration: none;
+		}
+
+		a:hover {
+			text-decoration: underline;
+		}
+		
+		
+		#field_csv {
+			min-width: 200px;
+			width: 300px;
+			height: 50px;
+		}
+		
+		.load_from_file {
+			margin-top: 10px;
+		}
+		
+		#companies {
+			border-top:2px solid #AAA
+		}
+		#companies th {
+			line-height: 34px;
+			cursor: pointer;
+		}
+		#companies th.ordered {
+			font-weight: bold;
+		}
+		#companies th.ordered::after {
+			content: " \25BC";
+		}
+		#companies th.ordered.desc::after {
+			content: " \25B2";
+		}
+		#companies th.photo {
+			cursor: default;
+		}
+		#companies td {
+			text-align: center;
+			border-width: 1px 0 0;
+			border: 1px solid #B6B6B6;
+			padding: 8px 5px;
+		}
+		#companies a {
+			display: block;
+			line-height: 80px;
+		}
+		#companies .photo {
+			width: 8%;
+		}
+		#companies .company_name, #companies .city, #companies .country, #companies .founder {
+			width: 23%;
+		}
+    }
+
+
+
+label {
+	display: inline-block;
+	float: left;
+	margin-right: 10px;
+}
+
+label span {
+	display: block;
+	font-size: 1.125em;
+	margin-bottom: 5px;
+}
+
+.load_from_file {
+	display: none;
+}
+
+.load_button {
+	font-weight: bold;
+	cursor: pointer;
+	text-decoration: underline;
+}
+
+#companies {
+	display: none;
+	margin-top: 10px;
+	width: 100%;
+}
+
+#companies td {
+	vertical-align: middle;
+	background-color:#F0F0F0;
+}
+
+#companies tr:nth-child(even) td {
+	background-color:#D8D8D8;
+}

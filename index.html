@@ -1,0 +1,42 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+	<meta name="viewport" content="initial-scale=1">
+	<link rel="stylesheet" type="text/css" href="main.css">
+	<!-- Maps API Javascript -->
+    <!--
+	<script src="http://maps.googleapis.com/maps/api/js?key=AIzaSyA3i-54f_k5RG-6dvaoPIWBX1et-N3v5ak&amp;sensor=false"></script>
+	-->
+</head>
+<body>
+
+<form method="post" action="" class="csv_load">
+	<fieldset>
+		<label class="csv" for="field_csv">
+			<span>Input CSV text:</span>
+			<textarea name="csv" id="field_csv"></textarea>
+		</label>
+		<label class="separator" for="field_separator">
+			<span>Column separator:</span>
+			<select name="separator" id="field_separator">
+				<option value="comma">Comma</option>
+				<option value="semicolon">Semicolon</option>
+				<option value="tab">Tab</option>
+			</select>
+		</label>
+		<input type="submit" value="Load!">
+	</fieldset>
+</form>
+
+<p class="load_from_file">Your CSV is empty! Click <span class="load_button">HERE</span> to load the sample file.</p>
+
+<div id="map"></div>
+<table id="companies"></table>
+
+
+<script src="zepto.min.js"></script>
+<script src="model.js"></script>
+<script src="main.js"></script>
+
+</body>
+</html>

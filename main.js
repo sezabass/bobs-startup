@@ -28,8 +28,8 @@ function loadSampleCSV() {
 		url: "sample.csv",
 		dataType: "text",
 		success: function(data) {
-			processData(data);
 			$('#field_csv').val(data);
+			$('form').submit();
 		}
 	 });
 }
@@ -58,6 +58,7 @@ function processData(allText, selectedSeparator) {
 	
 	var companies = buildData(lines);
 	buildTable(companies);
+	initMap(companies);
 }
 
 // Build objects from CSV
@@ -142,14 +143,4 @@ function orderBy(el) {
 	$el.siblings().removeClass('ordered desc');
 	$el.addClass('ordered');
 	$el.toggleClass('desc', direction == -1);
-}
-
-// Maps
-function initMap() {
-  // Create a map object and specify the DOM element for display.
-  var map = new google.maps.Map(document.getElementById('map'), {
-	center: {lat: -34.397, lng: 150.644},
-	scrollwheel: false,
-	zoom: 8
-  });
 }

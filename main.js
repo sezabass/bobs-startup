@@ -1,3 +1,5 @@
+'use strict';
+
 $(document).ready(function() {
 	var $csvForm = $('form.csv_load'),
 		$loadFromFile = $('.load_from_file');
@@ -38,7 +40,7 @@ function loadSampleCSV() {
 function processData(allText, selectedSeparator) {
 	var allTextLines = allText.split(/\r\n|\n/),
 		separators = {comma: ',', semicolon: ';', tab: '	'},
-		separator = selectedSeparator ? separators[selectedSeparator] : ','
+		separator = selectedSeparator ? separators[selectedSeparator] : ',',
 		headers = allTextLines[0].split(separator),
 		lines = [];
 
@@ -83,6 +85,7 @@ function buildTable(companies) {
 	}
 	
 	html += '<thead>';
+	html += '<th class="show_marker">Marker</th>';
 	html += '<th class="photo">Photo</th>';
 	html += '<th class="company_name">Company Name</th>';
 	html += '<th class="city">City</th>';
@@ -99,7 +102,7 @@ function buildTable(companies) {
 	$table.html(html);
 
 	// Attach ordering function
-	$table.find('th').not('.photo').on('click', function(e){
+	$table.find('th').not('.photo,.show_marker').on('click', function(e){
 		orderBy(this);
 	});
 	

@@ -181,7 +181,7 @@ body {
 		#companies th.ordered.desc::after {
 			content: " \25B2";
 		}
-		#companies th.photo {
+		#companies th.photo, #companies th.show_marker {
 			cursor: default;
 		}
 		#companies td {
@@ -248,9 +248,8 @@ label span {
 /* maps */
 
 #map {
-	margin-top: 10px;
+	margin: 30px 0;
 	height: 400px;
-	width: 100%;
 }
 #map .content {
 	min-width: 300px;
@@ -265,7 +264,7 @@ label span {
 #map .photo_wrapper {
 	position: absolute;
 	top: 0;
-	right: 20px;
+	right: 23px;
 	z-index: 1;
 }
 

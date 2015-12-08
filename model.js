@@ -1,5 +1,6 @@
 function Company (data) {
 
+	Company.HEADER_ID = "Id";
 	Company.HEADER_LINK = "Home Page";
 	Company.HEADER_PHOTO = "Photo";
 	Company.HEADER_COMPANY_NAME = "Company Name";
@@ -57,7 +58,8 @@ function Company (data) {
 	}
 	
 	Company.prototype.getHTMLDataRow = function() {
-		var html = '<tr id="' + this["Id"] + '">';
+		var html = '<tr id="company_' + this["Id"] + '">';
+		html += '<td class="show_marker"><input type="checkbox" name="show_marker" checked></td>';
 		html += this.getField('photo', Company.HEADER_PHOTO);
 		html += this.getField('company_name', Company.HEADER_COMPANY_NAME);
 		html += this.getField('city', Company.HEADER_CITY);

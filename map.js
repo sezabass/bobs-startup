@@ -16,12 +16,13 @@ function initMap(companies) {
 
 function addMarkers(companies, map) {
 
-	var markers = [],
-		infoWindows = [],
+	var markers = {},
+		infoWindows = {},
 		activeInfoWindow;
 	
 	for (var i = 0, len = companies.length; i < len; i++) {
 		var company = companies[i],
+			companyId = company[Company.HEADER_ID],
 			companyLat = parseFloat(companies[i][Company.HEADER_LAT]),
 			companyLong = parseFloat(companies[i][Company.HEADER_LONG]),
 			infowindow, marker;
@@ -40,45 +41,26 @@ function addMarkers(companies, map) {
 		infowindow = new google.maps.InfoWindow({
 			content: contentString
 		});
-		infoWindows.push(infowindow);
+		infoWindows[companyId] = infowindow;
 
 		marker = new google.maps.Marker({
 			position: {lat: companyLat, lng: companyLong},
 			map: map,
 			title: companies[i][Company.HEADER_COMPANY_NAME]
 		});
-		markers.push(marker);
+		markers[companyId] = marker;
+		
+		console.log(marker);
 	}
 	
-	for (var j = markers.length - 1; j >= 0; j--){
-		markers[j].infoPos = j;
+	for (var j in markers){
+		markers[j].id = j;
 		markers[j].addListener('click', function() {
 			if (typeof(activeInfoWindow) !== 'undefined') {
 				activeInfoWindow.close();
 			}
-			infoWindows[this.infoPos].open(map, this);
-			activeInfoWindow = infoWindows[this.infoPos];
+			infoWindows[this.id].open(map, this);
+			activeInfoWindow = infoWindows[this.id];
 		});
 	};
-}
-
-function generateGeoJSON(companies) {
-	var geoJSON = {
-		type: 'FeatureCollection',
-		features: []
-	};
-	for (var i = 0, len = companies.length; i < len; i++) {
-		var company = companies[i],
-			companyLat = parseFloat(companies[i][Company.HEADER_LAT]),
-			companyLong = parseFloat(companies[i][Company.HEADER_LONG]);
-			feature = {
-				type: 'Feature',
-				geometry: {type: 'Point', coordinates: [companyLat, companyLong]},
-				properties: {name: companies[i][Company.HEADER_COMPANY_NAME]}
-			};
-		
-		geoJSON.features.push(feature);
-	}
-	
-	return geoJSON;
 }

@@ -1,6 +1,7 @@
 'use strict';
 // Maps
 
+/* Another namespace */
 window.BobMaps = (function() {
 
 	var map,
@@ -41,11 +42,13 @@ window.BobMaps = (function() {
 					'</div>' +
 				'</div>';
 
+			// Infowindows
 			infowindow = new google.maps.InfoWindow({
 				content: contentString
 			});
 			infoWindows[companyId] = infowindow;
 
+			// Markers
 			marker = new google.maps.Marker({
 				position: {lat: companyLat, lng: companyLong},
 				map: map,
@@ -54,6 +57,7 @@ window.BobMaps = (function() {
 			markers[companyId] = marker;
 		}
 		
+		// Associate Infowindows to markers
 		for (var j in markers){
 			markers[j].id = j;
 			markers[j].addListener('click', function() {
@@ -66,6 +70,7 @@ window.BobMaps = (function() {
 		};
 	}
 	
+	// Toggle a marker visibility
 	var toggleMarker = function(id, visible) {
 		markers[id].setVisible(!!visible);
 	};

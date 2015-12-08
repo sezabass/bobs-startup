@@ -4,6 +4,8 @@ function Company (data) {
 	Company.HEADER_ID = "Id";
 	Company.HEADER_LINK = "Home Page";
 	Company.HEADER_PHOTO = "Photo";
+	Company.HEADER_POSTAL_CODE = "Postal Code";
+	Company.HEADER_STREET = "Street";
 	Company.HEADER_COMPANY_NAME = "Company Name";
 	Company.HEADER_CITY = "City";
 	Company.HEADER_COUNTRY = "Country";
@@ -63,6 +65,8 @@ function Company (data) {
 		html += '<td class="show_marker"><input type="checkbox" name="show_marker" value="' + this[Company.HEADER_ID] + '" checked></td>';
 		html += this.getField('photo', Company.HEADER_PHOTO);
 		html += this.getField('company_name', Company.HEADER_COMPANY_NAME);
+		html += this.getField('postal_code', Company.HEADER_POSTAL_CODE);
+		html += this.getField('street', Company.HEADER_STREET);
 		html += this.getField('city', Company.HEADER_CITY);
 		html += this.getField('country', Company.HEADER_COUNTRY);
 		html += this.getField('founder', Company.HEADER_FOUNDER);

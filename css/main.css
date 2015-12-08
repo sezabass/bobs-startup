@@ -142,9 +142,11 @@ body {
 		td:nth-of-type(1):before { content: "Marker"; }
 		td:nth-of-type(2):before { content: "Photo"; }
 		td:nth-of-type(3):before { content: "Company Name"; }
-		td:nth-of-type(4):before { content: "City"; }
-		td:nth-of-type(5):before { content: "Country"; }
-		td:nth-of-type(6):before { content: "Founder"; }
+		td:nth-of-type(4):before { content: "Postal Code"; }
+		td:nth-of-type(5):before { content: "Street"; }
+		td:nth-of-type(6):before { content: "City"; }
+		td:nth-of-type(7):before { content: "Country"; }
+		td:nth-of-type(8):before { content: "Founder"; }
 		
 		#companies img {
 			margin-top: 10px;
@@ -227,10 +229,10 @@ body {
 			width: 4%;
 		}
 		#companies .photo {
-			width: 8%;
+			width: 12%;
 		}
-		#companies .company_name, #companies .city, #companies .country, #companies .founder {
-			width: 22%;
+		#companies .company_name, #companies .city, #companies .country, #companies .founder, #companies .postal_code, #companies .street {
+			width: 14%;
 		}
     }
 

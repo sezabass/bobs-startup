@@ -36,8 +36,9 @@ window.BobMaps = (function() {
 					'<div class="photo_wrapper">' + company.getHTMLImage() + '</div>' +
 					'<div class="overlay"></div>' +
 					'<div class="details">' +
+					company.getField('postal_code', Company.HEADER_POSTAL_CODE, true) +
+					company.getField('street', Company.HEADER_STREET, true) +
 					company.getField('city', Company.HEADER_CITY, true) +
-					company.getField('country', Company.HEADER_COUNTRY, true) +
 					company.getField('founder', Company.HEADER_FOUNDER, true) +
 					'</div>' +
 				'</div>';

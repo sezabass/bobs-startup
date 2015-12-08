@@ -91,6 +91,8 @@ var buildTable = function(companies) {
 	html += '<th class="show_marker">Marker</th>';
 	html += '<th class="photo">Photo</th>';
 	html += '<th class="company_name">Company Name</th>';
+	html += '<th class="Postal Code">Postal Code</th>';
+	html += '<th class="Street">Street</th>';
 	html += '<th class="city">City</th>';
 	html += '<th class="country">Country</th>';
 	html += '<th class="founder">Founder</th>';
@@ -125,9 +127,11 @@ var orderBy = function(el) {
 		$tbody = $thead.next(),
 		fields = {
 			1: "Company Name",
-			2: "City",
-			3: "Country",
-			4: "Founder"
+			2: "Postal Code",
+			3: "Street",
+			4: "City",
+			5: "Country",
+			6: "Founder"
 		},
 		index = $thead.find('th').index(el),
 		$rootEls =  $tbody.find('tr'),

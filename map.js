@@ -52,8 +52,6 @@ window.BobMaps = (function() {
 				title: companies[i][Company.HEADER_COMPANY_NAME]
 			});
 			markers[companyId] = marker;
-			
-			console.log(marker);
 		}
 		
 		for (var j in markers){

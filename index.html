@@ -6,21 +6,25 @@
 </head>
 <body>
 
+<h1 class="page_title">Founder's Map</h1>
+
 <form method="post" action="" class="csv_load">
 	<fieldset>
 		<label class="csv" for="field_csv">
 			<span>Input CSV text:</span>
 			<textarea name="csv" id="field_csv"></textarea>
 		</label>
-		<label class="separator" for="field_separator">
-			<span>Column separator:</span>
-			<select name="separator" id="field_separator">
-				<option value="comma">Comma</option>
-				<option value="semicolon">Semicolon</option>
-				<option value="tab">Tab</option>
-			</select>
-		</label>
-		<input type="submit" value="Load!" class="submit_csv">
+		<div class="other_options">
+			<label class="separator" for="field_separator">
+				<span>Column separator:</span>
+				<select name="separator" id="field_separator">
+					<option value="comma">Comma</option>
+					<option value="semicolon">Semicolon</option>
+					<option value="tab">Tab</option>
+				</select>
+			</label>
+			<input type="submit" value="Load!" class="submit_csv">
+		</div>
 	</fieldset>
 </form>
 
@@ -33,8 +37,8 @@
 
 <script src="zepto.min.js"></script>
 <script src="model.js"></script>
-<script src="main.js"></script>
 <script src="map.js"></script>
+<script src="main.js"></script>
 <!-- Maps API Javascript -->
 <script type="text/javascript" language="javascript" src="http://maps.googleapis.com/maps/api/js?v=3.exp&language=pt-BR&region=BR" async defer></script>
 <!--&callback=initMap-->

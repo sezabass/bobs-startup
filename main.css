@@ -60,13 +60,20 @@ body {
 	margin: 10px;
 }
 
+.page_title {
+	font-size: 3em;
+	margin: 15px 0 30px;
+}
+
     /* Custom, iPhone Retina */ 
     @media only screen and (max-width : 767px) {
 		.csv {
+			width: 100%;
 			margin-bottom: 10px;
 		}
-        .csv, #field_csv {
+        #field_csv {
 			width: 100%;
+			height: 50px;
 		}
 		.separator {
 			line-height: 30px;
@@ -154,11 +161,32 @@ body {
 			text-decoration: underline;
 		}
 		
-		
+		.csv {
+			width: 70%;
+			margin-right: 20px;
+		}
 		#field_csv {
 			min-width: 200px;
-			width: 300px;
+			width: 100%;
+			height: 100px;
+		}
+		
+		.other_options {
+			overflow: hidden;
+		}
+		.separator {
+			margin-bottom: 26px;
+		}
+		#field_separator {
+			height: 30px;
+			width: 100px;
+		}
+		
+		.submit_csv {
+			width: 100px;
 			height: 50px;
+			float: left;
+			clear: left;
 		}
 		
 		.load_from_file {
@@ -218,10 +246,18 @@ label span {
 	display: block;
 	font-size: 1.125em;
 	margin-bottom: 5px;
+	font-weight: bold;
 }
 
 .load_from_file {
 	display: none;
+}
+
+.submit_csv {
+	border:0;
+	background-color: #0FBB0F;
+	color: #FFF;
+	cursor: pointer;
 }
 
 .load_button {
@@ -295,7 +331,7 @@ label span {
 }
 #map .field_title, #map .field_description {
 	float: left;
-	line-height: 20px;
+	line-height: 1.55em;
 	position: relative;
 	z-index: 3;
 }

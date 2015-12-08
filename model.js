@@ -27,8 +27,8 @@ function Company (data) {
 		var field = this[header];
 		
 		if (header === Company.HEADER_PHOTO || 
-			field.toLowerCase().endsWith('.jpg') || field.toLowerCase().endsWith('.png') ||
-			field.toLowerCase().endsWith('.gif')) {
+			field.toLowerCase().substr(-4) == '.jpg' || field.toLowerCase().substr(-4) == '.png' ||
+			field.toLowerCase().substr(-4) == '.gif') {
 			return this.getHTMLImage(header);
 			
 		} else if (header === Company.HEADER_COMPANY_NAME) {

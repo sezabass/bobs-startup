@@ -1,30 +1,33 @@
 'use strict';
 
+/* DOM is ready */
 $(document).ready(function() {
 	var $csvForm = $('form.csv_load'),
 		$loadFromFile = $('.load_from_file');
 
 	$csvForm.submit(function(e) {
 		e.preventDefault();
-		
+
 		var csv = $csvForm[0].csv.value.trim();
 		if (csv === "") {
 			$loadFromFile.show();
 		} else {
-			processData(csv, $csvForm[0].separator.value);
+			Bob.processData(csv, $csvForm[0].separator.value);
 			$loadFromFile.hide();
 		}
 	});
 	
 	$loadFromFile.find('.load_button').click(function(e) {
-		loadSampleCSV();
+		Bob.loadSampleCSV();	/* I added a "default data" loading feature here. */
 		$loadFromFile.hide();
 	});
 	
 });
 
+/* Here we have a Namespace, and I called it "Bob" because it's Bob's Startup ;) */
+window.Bob = (function (){
 // Load CSV from file
-function loadSampleCSV() {
+var loadSampleCSV = function() {
 	$.ajax({
 		type: "GET",
 		url: "sample.csv",
@@ -37,7 +40,7 @@ function loadSampleCSV() {
 }
 
 // Read CSV
-function processData(allText, selectedSeparator) {
+var processData = function(allText, selectedSeparator) {
 	var allTextLines = allText.split(/\r\n|\n/),
 		separators = {comma: ',', semicolon: ';', tab: '	'},
 		separator = selectedSeparator ? separators[selectedSeparator] : ',',
@@ -60,11 +63,11 @@ function processData(allText, selectedSeparator) {
 	
 	var companies = buildData(lines);
 	buildTable(companies);
-	initMap(companies);
+	BobMaps.initMap(companies);
 }
 
 // Build objects from CSV
-function buildData(lines) {
+var buildData = function(lines) {
 	var companies = [];
 	for (var i = 0, len = lines.length; i < len; i++) {
 		var company = new Company(lines[i]);
@@ -75,7 +78,7 @@ function buildData(lines) {
 }
 
 // Put data in a table
-function buildTable(companies) {
+var buildTable = function(companies) {
 	var $table = $('#companies'),
 		html = '';
 		
@@ -106,11 +109,17 @@ function buildTable(companies) {
 		orderBy(this);
 	});
 	
+	// Attach toggle marker function
+	$table.find('input[name="show_marker"]').click(function(e) {
+		var checkbox = e.target;
+		BobMaps.toggleMarker(checkbox.value, checkbox.checked);
+	});
+	
 	$table.show();
 }
 
 // Table ordering function
-function orderBy(el) {
+var orderBy = function(el) {
 	var $el = $(el),
 		$thead = $el.closest('thead'),
 		$tbody = $thead.next(),
@@ -147,3 +156,9 @@ function orderBy(el) {
 	$el.addClass('ordered');
 	$el.toggleClass('desc', direction == -1);
 }
+
+	return {
+		loadSampleCSV: loadSampleCSV,
+		processData: processData
+	};
+})();

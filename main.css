@@ -132,11 +132,12 @@ body {
 		/*
 		Label the data
 		*/
-		td:nth-of-type(1):before { content: "Photo"; }
-		td:nth-of-type(2):before { content: "Company Name"; }
-		td:nth-of-type(3):before { content: "City"; }
-		td:nth-of-type(4):before { content: "Country"; }
-		td:nth-of-type(5):before { content: "Founder"; }
+		td:nth-of-type(1):before { content: "Marker"; }
+		td:nth-of-type(2):before { content: "Photo"; }
+		td:nth-of-type(3):before { content: "Company Name"; }
+		td:nth-of-type(4):before { content: "City"; }
+		td:nth-of-type(5):before { content: "Country"; }
+		td:nth-of-type(6):before { content: "Founder"; }
 		
 		#companies img {
 			margin-top: 10px;
@@ -194,11 +195,14 @@ body {
 			display: block;
 			line-height: 80px;
 		}
+		#companies .show_marker {
+			width: 4%;
+		}
 		#companies .photo {
 			width: 8%;
 		}
 		#companies .company_name, #companies .city, #companies .country, #companies .founder {
-			width: 23%;
+			width: 22%;
 		}
     }
 
@@ -231,17 +235,18 @@ label span {
 	margin-top: 10px;
 	width: 100%;
 }
-
 #companies td {
 	vertical-align: middle;
 	background-color:#F0F0F0;
 }
-
 #companies tr:nth-child(even) td {
 	background-color:#D8D8D8;
 }
 #companies img {
 	max-height: 80px
+}
+#companies .show_marker input{
+	margin: 0;
 }
 
 

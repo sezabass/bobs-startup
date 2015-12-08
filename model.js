@@ -1,3 +1,4 @@
+'use strict';
 function Company (data) {
 
 	Company.HEADER_ID = "Id";
@@ -12,15 +13,15 @@ function Company (data) {
 
 	Company.prototype.setData = function(data) {
 		for (var attrname in data) { this[attrname] = data[attrname]; }
-	}
+	};
 	
 	Company.prototype.getHTMLLink = function(label) {
 		return '<a href="' + this[Company.HEADER_LINK] + '" target="_blank">' + (label ? label : 'Website') + '</a>';
-	}
+	};
 	
 	Company.prototype.getHTMLImage = function(header) {
 		return '<img src="' + this[(header ? header : Company.HEADER_PHOTO)] + '">';
-	}
+	};
 	
 	Company.prototype.handleRichContent = function (header) {
 		var field = this[header];
@@ -36,7 +37,7 @@ function Company (data) {
 		} else {
 			return this[header];
 		}
-	}
+	};
 	 
 	
 	Company.prototype.getField = function(className, header, forMaps) {
@@ -51,15 +52,15 @@ function Company (data) {
 				' originalValue="'+this[header]+'">' + content + '</td>';
 		}
 		return 
-	}
+	};
 	
 	Company.prototype.getTitle = function() {
 		return '<h3 class="company_name">' + this[Company.HEADER_COMPANY_NAME] + '</h3>';
-	}
+	};
 	
 	Company.prototype.getHTMLDataRow = function() {
-		var html = '<tr id="company_' + this["Id"] + '">';
-		html += '<td class="show_marker"><input type="checkbox" name="show_marker" checked></td>';
+		var html = '<tr id="company_' + this[Company.HEADER_ID] + '">';
+		html += '<td class="show_marker"><input type="checkbox" name="show_marker" value="' + this[Company.HEADER_ID] + '" checked></td>';
 		html += this.getField('photo', Company.HEADER_PHOTO);
 		html += this.getField('company_name', Company.HEADER_COMPANY_NAME);
 		html += this.getField('city', Company.HEADER_CITY);
@@ -67,7 +68,7 @@ function Company (data) {
 		html += this.getField('founder', Company.HEADER_FOUNDER);
 		html += '</tr>';
 		return html;
-	}
+	};
 	
 	this.setData(data);
 	return this;
